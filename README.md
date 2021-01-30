@@ -42,25 +42,29 @@ Execute the below commands in the terminal based on your OS
 
   * **Step4:**
   Execute the code present in the Process folder in the IDE
+  
+## Results:
+
+Results are stored in an excel file inside Doc Folder named results.xlsx. The information stored is taken from program console and are taken after the code was run on 30/1/2021 10:08:00 PM IST.
 
 
 ## Validation: 
 
 Check the generated output files in the below order to validate and understand the result
 
-**1)Guava_Commits_Raw.csv** - The cloned repository commit messages
+**1) Guava_Commits_Raw.csv** - The cloned repository commit messages
 
-**2)Guava_Cleaned_Commits.csv** - The cleaned commit messages
+**2) Guava_Cleaned_Commits.csv** - The cleaned commit messages
 
-**3)Guava_Commits_Categorized.csv** - The categorised messages
+**3) Guava_Commits_Categorized.csv** - The categorised messages
 
-**4)Guava_Commits_Cleaned_Final.csv** - The clean data after categorisation
+**4) Guava_Commits_Cleaned_Final.csv** - The clean data after categorisation
 
-**5)Guava_Sentiment_Scores.csv** - The sentiment values for each message
+**5) Guava_Sentiment_Scores.csv** - The sentiment values for each message
 
-**6)Guava_Commits_Final.csv** - The final output which will be used for statistical analysis including the categories and the sentiment values
+**6) Guava_Commits_Final.csv** - The final output which will be used for statistical analysis including the categories and the sentiment values
 
-**7)Final_Results.csv** – The final statistical inference
+**7) Final_Results.csv** – The final statistical inference
 
 
 ## Data: 
