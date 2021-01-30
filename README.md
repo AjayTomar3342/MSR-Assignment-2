@@ -28,21 +28,58 @@ Execute the below commands in the terminal based on your OS
 	py -m pip install -r requirements.txt
 
 ```
-## Process: 
+## Process for acquiring the results: 
 
-  * **Step1:**
+  * **Step 1:**
   Clone the project into your local machine
 
-  * **Step2:**
+  * **Step 2:**
   Execute the requirements commands in the terminal based on your OS
 
-  * **Step3:**
+  * **Step 3:**
   Change directory to the process folder and execute the below commands
   ```cd Process```
 
-  * **Step4:**
+  * **Step 4:**
   Execute the code present in the Process folder in the IDE
+
+## Alternative Process for acquiring the results:
+For quick running of program, PyCharm use is suggested as it has good controls for remving manual steps to pull a repository and get it running.
+
+Steps are:
+  * **Step 1:**
+  Make sure one is signed in on Github in Pycharm
   
+  * **Step 2:**
+  Open a new project
+  
+  * **Step 3:**
+  Go to VCS Option on the Top Horizontal Options Bar
+  
+  * **Step 4:**
+  Select Enable Version Control Integration Control inside VCS if not done already
+  
+  * **Step 5:**
+  After checking the previous option on, select Checkout from Version Control and select Git
+  
+  * **Step 6:**
+  In the new pop up window, include the link of the github repository you are trying to pull.
+  Subsequently in the same pop up window, select an appropriate directory where the  project will be pulled.
+  
+  * **Step 7:**
+  Select clone option to start the pulling process.
+  
+  * **Step 8:**
+  Select option to start the pulled project in New Window or This window as per your personal preference.
+  
+  * **Step 9:**
+  After this the project will be up and running and requirements. Txt file will automatically install required libraries.
+
+This is a quick process to start the testing of GitHub project taken from the Official Jet Brains Website. We have tried this with several PC’s and are confident that this will not give any errors.
+
+> **Link to Above Process Video:**
+  https://www.youtube.com/watch?v=ukbvdF5wqPQ&feature=emb_title
+
 ## Results:
 
 Results are stored in an excel file inside Doc Folder named results.xlsx. The information stored is taken from program console and are taken after the code was run on 30/1/2021 10:08:00 PM IST.
