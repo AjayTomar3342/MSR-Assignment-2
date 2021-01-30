@@ -15,7 +15,8 @@ Please cite the following paper if you intend to know more about the original re
 
 To run this project, you will need
 
-Python IDE (Jupyter Notebook or PyCharm), Python3+ must be installed on the system.
+Python IDE (Jupyter Notebook or PyCharm-In Case of Alternative Process)
+Python3+ must be installed on the system.
 	
 Execute the below commands in the terminal based on your OS
 ```
