@@ -84,6 +84,11 @@ This is a quick process to start the testing of GitHub project taken from the Of
 
 Results are stored in an excel file inside Doc Folder named results.xlsx. The information stored is taken from program console and are taken after the code was run on 30/1/2021 10:08:00 PM IST.
 
+Screenshots of Results are as follows:
+
+<img src="Doc/Result_2.png"> 
+<img src="Doc/Result_2.png"> 
+
 
 ## Validation: 
 
