@@ -25,9 +25,6 @@ guava_commits_raw_df=pd.DataFrame({'Commit Messages':guava_commits_messages})
 guava_commits_raw_df.to_csv('../Data/Guava_Commits_Raw.csv')
 
 
-
-
-
 ######Categorization
 
 # Read in commit message file
@@ -37,11 +34,11 @@ pd.set_option("display.max_colwidth", 1)
 
 # Split commit messages and revision id
 guava_split_df = guava_df['Commit Messages'].str.split(",", 1, expand=True)
-guava_split_df
+
 
 # Assign column names
 guava_split_df.columns = ['Commit', 'Messages']
-print(guava_split_df)
+
 guava_split_df[['Commit']] = guava_split_df.Commit.str.split('\"', expand=True)
 # guava_split_df = guava_split_df.drop(['1', '4'], axis=1)
 
@@ -58,14 +55,14 @@ for msg in guava_split_df['Messages']:
 
 # Assigning FC to new dataframe to do further filterations
 guava_df_with_fc = guava_split_df[guava_split_df['Category'] == 'FC']
-guava_df_with_fc
+
 
 # Identifying documentation from FC
 for msg in guava_df_with_fc['Messages']:
     if 'comment' in msg or 'assertion' in msg or 'doc' in msg:
         guava_df_with_fc.loc[guava_df_with_fc.Messages == msg, "Category"] = 'Documentation-FC'
 
-guava_df_with_fc
+
 
 # Remove insert from FC's
 guava_df_with_fc_and_without_documentation = guava_df_with_fc[guava_df_with_fc['Category'] == 'FC']
@@ -80,7 +77,7 @@ guava_df_with_fc_and_without_documentation
 # Get pure FC's
 guava_df_with_final_fc = guava_df_with_fc_and_without_documentation[
     guava_df_with_fc_and_without_documentation['Category'] == 'FC']
-guava_df_with_final_fc
+
 
 # Joining FC commits with the original dataframe
 guava_df_fc = pd.concat([guava_split_df, guava_df_with_final_fc["Category"]], axis=1)
@@ -139,7 +136,6 @@ link='http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+#]|[!*\(\),]|'\
 
 guava_df[0]=guava_df[0].str.replace(link,'  ')
 
-print(guava_df)
 guava_df.reset_index()
 #Save pandas dataframe as csv file
 guava_df.to_csv('../Data/Guava_Commits_Cleaned_Final.csv')
@@ -177,10 +173,7 @@ guava_df_sentiment_scores = pd.read_csv('../Data/Guava_Sentiment_Scores.csv',ind
 
 guava_df_complete= pd.concat([guava_df_categorized, guava_df_sentiment_scores], join = 'outer', axis = 1)
 
-print(guava_df_complete)
 guava_df_complete.to_csv('../Data/Guava_Commits_Final.csv')
-
-
 
 
 ##Statistical Tests
@@ -315,12 +308,10 @@ print("FIF Mean Polar emotions",np.mean(fif_with_polar_emotions))
 print("Non-FIF Regular Mean Polar emotions",np.mean(non_fif_regulars_with_polar_emotions))
 
 
-
-
 #Chi-Squared Test-Negative Vs. Positive
 
 #FIC vs Regular
-fic_vs_regular_negative_and_positive= guava_df[(((guava_df['Category']=='FIC') | (guava_df['Category']!='FIC'))) & (((guava_df['Sentiment Score']==-1) | (guava_df['Sentiment Score']==1)))]
+fic_vs_regular_negative_and_positive= guava_df[(((guava_df['Category']=='FIC')| (guava_df['Category']=='Regular'))) & (((guava_df['Sentiment Score']==-1) | (guava_df['Sentiment Score']==1)))]
 fic_vs_regular_negative_and_positive=fic_vs_regular_negative_and_positive[['Category','Sentiment Score']]
 
 fic_vs_regular_negative_and_positive.loc[fic_vs_regular_negative_and_positive['Sentiment Score']== -1, 'Sentiment Score'] = "Negative"
@@ -334,7 +325,7 @@ print("FIC Vs. Regular")
 print(contigency_pct)
 
 #pFIC vs Regular
-pfic_vs_regular_negative_and_positive= guava_df[(((guava_df['Category']=='pFIC') | (guava_df['Category']!='pFIC'))) & (((guava_df['Sentiment Score']==-1) | (guava_df['Sentiment Score']==1)))]
+pfic_vs_regular_negative_and_positive= guava_df[(((guava_df['Category']=='pFIC') | (guava_df['Category']=='Regular'))) & (((guava_df['Sentiment Score']==-1) | (guava_df['Sentiment Score']==1)))]
 pfic_vs_regular_negative_and_positive=pfic_vs_regular_negative_and_positive[['Category','Sentiment Score']]
 
 pfic_vs_regular_negative_and_positive.loc[pfic_vs_regular_negative_and_positive['Sentiment Score']== -1, 'Sentiment Score'] = "Negative"
@@ -349,7 +340,7 @@ print(contigency_pct)
 
 
 #FC vs Regular
-fc_vs_regular_negative_and_positive= guava_df[(((guava_df['Category']=='FC') | (guava_df['Category']!='FC'))) & (((guava_df['Sentiment Score']==-1) | (guava_df['Sentiment Score']==1)))]
+fc_vs_regular_negative_and_positive= guava_df[(((guava_df['Category']=='FC') | (guava_df['Category']=='Regular'))) & (((guava_df['Sentiment Score']==-1) | (guava_df['Sentiment Score']==1)))]
 fc_vs_regular_negative_and_positive=fc_vs_regular_negative_and_positive[['Category','Sentiment Score']]
 
 fc_vs_regular_negative_and_positive.loc[fc_vs_regular_negative_and_positive['Sentiment Score']== -1, 'Sentiment Score'] = "Negative"
@@ -363,7 +354,7 @@ print("FC Vs. Regular")
 print(contigency_pct)
 
 #FIF vs Regular
-fif_vs_regular_negative_and_positive= guava_df[(((guava_df['Category']=='FIF') | (guava_df['Category']!='FIF'))) & (((guava_df['Sentiment Score']==-1) | (guava_df['Sentiment Score']==1)))]
+fif_vs_regular_negative_and_positive= guava_df[(((guava_df['Category']=='FIF') | (guava_df['Category']=='Regular'))) & (((guava_df['Sentiment Score']==-1) | (guava_df['Sentiment Score']==1)))]
 fif_vs_regular_negative_and_positive=fif_vs_regular_negative_and_positive[['Category','Sentiment Score']]
 
 fif_vs_regular_negative_and_positive.loc[fif_vs_regular_negative_and_positive['Sentiment Score']== -1, 'Sentiment Score'] = "Negative"
@@ -378,13 +369,11 @@ print(contigency_pct)
 
 
 
-
-
 #Chi-Squared Test-Emotion Vs. Neutral
 guava_df.loc[guava_df['Sentiment Score']== -1,'Sentiment Score'] = 1
 
 #FIC vs Regular
-fic_vs_regular_emotion_and_neutral= guava_df[(((guava_df['Category']=='FIC') | (guava_df['Category']!='FIC'))) & (((guava_df['Sentiment Score']==0) | (guava_df['Sentiment Score']==1)))]
+fic_vs_regular_emotion_and_neutral= guava_df[(((guava_df['Category']=='FIC') | (guava_df['Category']=='Regular'))) & (((guava_df['Sentiment Score']==0) | (guava_df['Sentiment Score']==1)))]
 fic_vs_regular_emotion_and_neutral=fic_vs_regular_emotion_and_neutral[['Category','Sentiment Score']]
 
 fic_vs_regular_emotion_and_neutral.loc[(fic_vs_regular_emotion_and_neutral['Sentiment Score']== 1), 'Sentiment Score'] = "Emotion"
@@ -399,7 +388,7 @@ print("FIC Vs. Regular")
 print(contigency_pct)
 
 #pFIC vs Regular
-pfic_vs_regular_emotion_and_neutral= guava_df[(((guava_df['Category']=='pFIC') | (guava_df['Category']!='pFIC'))) & (((guava_df['Sentiment Score']==0) | (guava_df['Sentiment Score']==1)))]
+pfic_vs_regular_emotion_and_neutral= guava_df[(((guava_df['Category']=='pFIC') | (guava_df['Category']=='Regular'))) & (((guava_df['Sentiment Score']==0) | (guava_df['Sentiment Score']==1)))]
 pfic_vs_regular_emotion_and_neutral=pfic_vs_regular_emotion_and_neutral[['Category','Sentiment Score']]
 
 pfic_vs_regular_emotion_and_neutral.loc[(pfic_vs_regular_emotion_and_neutral['Sentiment Score']== 1), 'Sentiment Score'] = "Emotion"
@@ -414,7 +403,7 @@ print("pFIC Vs. Regular")
 print(contigency_pct)
 #
 # #FC vs Regular
-fc_vs_regular_emotion_and_neutral= guava_df[(((guava_df['Category']=='FC') | (guava_df['Category']!='FC'))) & (((guava_df['Sentiment Score']==0) | (guava_df['Sentiment Score']==1)))]
+fc_vs_regular_emotion_and_neutral= guava_df[(((guava_df['Category']=='FC') | (guava_df['Category']=='Regular'))) & (((guava_df['Sentiment Score']==0) | (guava_df['Sentiment Score']==1)))]
 fc_vs_regular_emotion_and_neutral=fc_vs_regular_emotion_and_neutral[['Category','Sentiment Score']]
 
 fc_vs_regular_emotion_and_neutral.loc[(fc_vs_regular_emotion_and_neutral['Sentiment Score']== 1), 'Sentiment Score'] = "Emotion"
@@ -430,7 +419,7 @@ print(contigency_pct)
 
 
  #FIF vs Regular
-fif_vs_regular_emotion_and_neutral= guava_df[(((guava_df['Category']=='FIF') | (guava_df['Category']!='FIF'))) & (((guava_df['Sentiment Score']==0) | (guava_df['Sentiment Score']==1)))]
+fif_vs_regular_emotion_and_neutral= guava_df[(((guava_df['Category']=='FIF') | (guava_df['Category']=='Regular'))) & (((guava_df['Sentiment Score']==0) | (guava_df['Sentiment Score']==1)))]
 fif_vs_regular_emotion_and_neutral=fif_vs_regular_emotion_and_neutral[['Category','Sentiment Score']]
 
 fif_vs_regular_emotion_and_neutral.loc[(fif_vs_regular_emotion_and_neutral['Sentiment Score']== 1), 'Sentiment Score'] = "Emotion"
@@ -443,6 +432,8 @@ print(" ")
 print("Emotion Vs. Neutral")
 print("FIF Vs. Regular")
 print(contigency_pct)
+
+
 
 
 
