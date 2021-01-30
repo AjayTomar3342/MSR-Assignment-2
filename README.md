@@ -86,8 +86,8 @@ Results are stored in an excel file inside Doc Folder named results.xlsx. The in
 
 Screenshots of Results are as follows:
 
-<img src="Doc/Result_2.png"> 
-<img src="Doc/Result_1.png"> 
+<img src="Doc/Result_2.PNG"> 
+<img src="Doc/Result_1.PNG"> 
 
 
 ## Validation: 
