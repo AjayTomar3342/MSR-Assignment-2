@@ -42,7 +42,9 @@ Execute the below commands in the terminal based on your OS
   ```cd Process```
 
   * **Step 4:**
-  Execute the code present in the Process folder in the IDE
+  Execute the code present in the Process folder(File Name-MSR-Assignment.py) in the IDE
+  
+  Please note that after each run of the file Guava Repository Folder from the Process folder has to be deleted manually as for each run, GitHub API scrapes updated data and for successfull scraping older data has to be deleted
 
 ## Alternative Process for acquiring the results:
 For quick running of program, PyCharm use is suggested as it has good controls for remving manual steps to pull a repository and get it running.
@@ -74,7 +76,7 @@ Steps are:
   Select option to start the pulled project in New Window or This window as per your personal preference.
   
   * **Step 9:**
-  After this the project will be up and running and requirements. Txt file will automatically install required libraries.
+  After this the project will be up and running and requirements. Txt file will automatically install required libraries. Run the file MSR-Assignment.py from Process Folder to get the results
 
 This is a quick process to start the testing of GitHub project taken from the Official Jet Brains Website. We have tried this with several PC’s and are confident that this will not give any errors.
 
