@@ -86,7 +86,9 @@ Results are stored in an excel file inside Doc Folder named results.xlsx. The in
 
 Screenshots of Results are as follows:
 
+#Mann-Whitney U Test Results
 <img src="Doc/Result_2.PNG"> 
+#Chi-Square Test Results
 <img src="Doc/Result_1.PNG"> 
 
 
