@@ -47,7 +47,7 @@ Execute the below commands in the terminal based on your OS
   
   Please note that after each run of the file Guava Repository Folder from the Process folder has to be deleted manually as for each run, GitHub API scrapes updated data and for successfull scraping older data has to be deleted
 
-## Alternative Process for acquiring the results:
+## Alternative Process for acquiring the results(Backup):
 For quick running of program, PyCharm use is suggested as it has good controls for removing manual steps to pull a repository and get it running.
 
 Steps are:
