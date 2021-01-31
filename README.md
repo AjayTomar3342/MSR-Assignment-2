@@ -90,8 +90,8 @@ Results are stored in an excel file inside Doc Folder named results.xlsx. The in
 
 Screenshots of Results are as follows:
 
-<img src="Doc/Result_2.PNG"> 
-<img src="Doc/Result_1.PNG"> 
+<img src="Data/Result_2.PNG"> 
+<img src="Data/Result_1.PNG"> 
 
 ## Contents of Doc Folder:
 
@@ -120,8 +120,7 @@ Check the generated output files in the below order to validate and understand t
 
 Input data is the extracted messages from the cloned repository, the remaining files created as part of the program are all intermediate files.
 The final results are printed as part of the console
-<img src="Data/msr_1.png"> 
-<img src="Data/msr_2.png"> 
+<img src="Data/DataFlow.png"> 
 
 ## Delta: 
 
