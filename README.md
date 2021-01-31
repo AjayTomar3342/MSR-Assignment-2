@@ -92,6 +92,9 @@ Screenshots of Results are as follows:
 <img src="Doc/Result_2.PNG"> 
 <img src="Doc/Result_1.PNG"> 
 
+## Contents of Doc Folder:
+
+Doc Folder consists of Input File(Acquired after scraping GitHub Repository) named as Guava_Commit_Raw.xlsx and an Output File(Results.xlsx) for viewing the input and output without execution. 
 
 ## Validation: 
 
