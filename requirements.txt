@@ -3,3 +3,4 @@ nltk~=3.5
 numpy~=1.19.5
 statsmodels~=0.12.1
 scipy~=1.6.0
+GitPython~=3.1.12
