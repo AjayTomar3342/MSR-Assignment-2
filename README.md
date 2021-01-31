@@ -38,11 +38,12 @@ Execute the below commands in the terminal based on your OS
   Execute the requirements commands in the terminal based on your OS
 
   * **Step 3:**
-  Change directory to the process folder and execute the below commands
+  Change directory to the process folder 
+  
   ```cd Process```
 
   * **Step 4:**
-  Execute the code present in the Process folder(File Name-MSR-Assignment.py) in the IDE
+  Execute the code present in the Process folder (File Name-MSR-Assignment.py) in the IDE
   
   Please note that after each run of the file Guava Repository Folder from the Process folder has to be deleted manually as for each run, GitHub API scrapes updated data and for successfull scraping older data has to be deleted
 
@@ -94,7 +95,7 @@ Screenshots of Results are as follows:
 
 ## Contents of Doc Folder:
 
-Doc Folder consists of Input File(Acquired after scraping GitHub Repository) named as Guava_Commit_Raw.xlsx and an Output File(Results.xlsx) for viewing the input and output without execution. 
+Doc Folder consists of Input File (Acquired after scraping GitHub Repository) named as Guava_Commit_Raw.xlsx and an Output File(Results.xlsx) for viewing the input and output without execution. 
 
 ## Validation: 
 
@@ -112,7 +113,7 @@ Check the generated output files in the below order to validate and understand t
 
 **6) Guava_Commits_Final.csv** - The final output which will be used for statistical analysis including the categories and the sentiment values
 
-**7) Final_Results.csv** – The final statistical inference
+**7) Results.xlsx** – The final statistical inference
 
 
 ## Data: 
