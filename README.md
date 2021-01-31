@@ -95,7 +95,7 @@ Screenshots of Results are as follows:
 
 ## Contents of Doc Folder:
 
-Doc Folder consists of Input File (Acquired after scraping GitHub Repository) named as Guava_Commit_Raw.xlsx and an Output File(Results.xlsx) for viewing the input and output without execution. 
+Doc Folder consists of Input File (Acquired after scraping GitHub Repository) named as Guava_Commit_Raw.csv and an Output File(Results.xlsx) for viewing the input and output without execution. 
 
 ## Validation: 
 
