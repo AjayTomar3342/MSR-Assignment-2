@@ -21,11 +21,9 @@ Python3+ must be installed on the system.
 Execute the below commands in the terminal based on your OS
 ```
 	Unix/macOS
-	python -m pip freeze > requirements.txt
 	python -m pip install -r requirements.txt
 
 	Windows
-	py -m pip freeze > requirements.txt
 	py -m pip install -r requirements.txt
 
 ```
