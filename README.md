@@ -35,12 +35,12 @@ Execute the below commands in the terminal based on your OS
   Clone the project into your local machine
 
   * **Step 2:**
-  Execute the requirements commands in the terminal based on your OS
+  Execute the requirements commands in the terminal based on your OS to ensure you have the right setup for code execution
 
   * **Step 3:**
-  Change directory to the process folder 
+  Change directory to the Process folder 
   
-  ```cd Process```
+ 	 ```cd Process```
 
   * **Step 4:**
   Execute the code present in the Process folder (File Name-MSR-Assignment.py) in the IDE
@@ -48,7 +48,7 @@ Execute the below commands in the terminal based on your OS
   Please note that after each run of the file Guava Repository Folder from the Process folder has to be deleted manually as for each run, GitHub API scrapes updated data and for successfull scraping older data has to be deleted
 
 ## Alternative Process for acquiring the results:
-For quick running of program, PyCharm use is suggested as it has good controls for remving manual steps to pull a repository and get it running.
+For quick running of program, PyCharm use is suggested as it has good controls for removing manual steps to pull a repository and get it running.
 
 Steps are:
   * **Step 1:**
@@ -142,15 +142,3 @@ The final results are printed as part of the console
 * The p-values resulting from Bonferroni corrections is mostly 1 which means that the Mean values of the comparing data is almost same. This is inevitable as there is minor difference between the sentiment values among the different categories.
 
 * The result in the research paper involves a combination of 13 huge repositories wherein we assume the results that we got from our reproduction project is different since we considered only one medium sized repository for this task and that the repository might be biased.
-
-
-
-
-
-
-
-
-
-
-
-
