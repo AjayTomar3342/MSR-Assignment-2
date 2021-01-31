@@ -120,6 +120,7 @@ Check the generated output files in the below order to validate and understand t
 
 Input data is the extracted messages from the cloned repository, the remaining files created as part of the program are all intermediate files.
 The final results are printed as part of the console
+
 <img src="Data/DataFlow.png"> 
 
 ## Delta: 
