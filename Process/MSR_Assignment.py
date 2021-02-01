@@ -3,9 +3,8 @@ import pandas as pd
 import nltk
 nltk.download('vader_lexicon')
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-from scipy.stats import ranksums
 from scipy.stats import chi2_contingency
-import numpy as np
+import numpy as np 
 from scipy.stats import mannwhitneyu
 import statsmodels.stats.multitest as multi
 
@@ -187,6 +186,15 @@ import statsmodels.stats.multitest as multi
 guava_df = pd.read_csv('../Data/Guava_Commits_Final.csv',index_col=0)
 
 ##All Emotions Test
+print(" ")
+print(" ")
+print("*******")
+print("Results")
+print("*******")
+print(" ")
+print("All Emotions Test")
+print("*****************")
+
 all_emotions_test=list()
 #Get FIC's with all emotions
 fic_with_all_emotions= guava_df[guava_df['Category']=='FIC']
@@ -196,7 +204,7 @@ fic_with_all_emotions=fic_with_all_emotions['Sentiment Score']
 non_fic_regulars_with_all_emotions= guava_df[guava_df['Category']!='FIC']
 non_fic_regulars_with_all_emotions=non_fic_regulars_with_all_emotions['Sentiment Score']
 
-print("P-Value between All emotions FIC and Regular Commits",mannwhitneyu(fic_with_all_emotions, non_fic_regulars_with_all_emotions))
+print("P-Value between All emotions FIC and Regular Commits :",mannwhitneyu(fic_with_all_emotions, non_fic_regulars_with_all_emotions).pvalue)
 all_emotions_test.append(mannwhitneyu(fic_with_all_emotions, non_fic_regulars_with_all_emotions)[1])
 
 #Get pFIC's with all emotions
@@ -207,7 +215,7 @@ pfic_with_all_emotions=pfic_with_all_emotions['Sentiment Score']
 non_pfic_regulars_with_all_emotions= guava_df[guava_df['Category']!='pFIC']
 non_pfic_regulars_with_all_emotions=non_pfic_regulars_with_all_emotions['Sentiment Score']
 
-print("P-Value between All emotions pFIC's and Regular Commits",mannwhitneyu(pfic_with_all_emotions, non_pfic_regulars_with_all_emotions))
+print("P-Value between All emotions pFIC and Regular Commits :",mannwhitneyu(pfic_with_all_emotions, non_pfic_regulars_with_all_emotions).pvalue)
 all_emotions_test.append(mannwhitneyu(pfic_with_all_emotions, non_pfic_regulars_with_all_emotions)[1])
 
 #Get FC's with all emotions
@@ -218,7 +226,7 @@ fc_with_all_emotions=fc_with_all_emotions['Sentiment Score']
 non_fc_regulars_with_all_emotions= guava_df[guava_df['Category']!='FC']
 non_fc_regulars_with_all_emotions=non_fc_regulars_with_all_emotions['Sentiment Score']
 
-print("P-Value between All emotions FC's and Regular Commits",mannwhitneyu(fc_with_all_emotions, non_fc_regulars_with_all_emotions))
+print("P-Value between All emotions FC and Regular Commits :",mannwhitneyu(fc_with_all_emotions, non_fc_regulars_with_all_emotions).pvalue)
 all_emotions_test.append(mannwhitneyu(fc_with_all_emotions, non_fc_regulars_with_all_emotions)[1])
 
 #Get FIF's with all emotions
@@ -229,15 +237,20 @@ fif_with_all_emotions=fif_with_all_emotions['Sentiment Score']
 non_fif_regulars_with_all_emotions= guava_df[guava_df['Category']!='FIF']
 non_fif_regulars_with_all_emotions=non_fif_regulars_with_all_emotions['Sentiment Score']
 
-print("P-Value between All emotions FIF's and Regular Commits",mannwhitneyu(fif_with_all_emotions, non_fif_regulars_with_all_emotions))
+print("P-Value between All emotions FIF and Regular Commits :",mannwhitneyu(fif_with_all_emotions, non_fif_regulars_with_all_emotions).pvalue)
 all_emotions_test.append(mannwhitneyu(fif_with_all_emotions, non_fif_regulars_with_all_emotions)[1])
 
+#Bonferroni Correction
+print(" ")
+print("Bonferroni corrections for pvalues of all emotions")
+print("**************************************************")
 p_adjusted = multi.multipletests(all_emotions_test, method='bonferroni',alpha=0.05)
 print("P Adjusted values for All polarity test", p_adjusted)
 
 
 print(" ")
 print("Polar Emotions Test")
+print("*******************")
 ##Only Polar Emotions Test
 
 polar_emotions_test=[]
@@ -249,7 +262,7 @@ fic_with_polar_emotions=fic_with_polar_emotions['Sentiment Score']
 non_fic_regulars_with_polar_emotions= guava_df.loc[(guava_df['Category']!='FIC') & ((guava_df['Sentiment Score']==-1) | (guava_df['Sentiment Score']==1))]
 non_fic_regulars_with_polar_emotions=non_fic_regulars_with_polar_emotions['Sentiment Score']
 
-print("P-Value between polar emotions FIC and Regular Commits",mannwhitneyu(fic_with_polar_emotions, non_fic_regulars_with_polar_emotions))
+print("P-Value between polar emotions FIC and Regular Commits :",mannwhitneyu(fic_with_polar_emotions, non_fic_regulars_with_polar_emotions).pvalue)
 polar_emotions_test.append(mannwhitneyu(fic_with_polar_emotions, non_fic_regulars_with_polar_emotions)[1])
 
 #Get pFIC's with polar emotions
@@ -260,7 +273,7 @@ pfic_with_polar_emotions=pfic_with_polar_emotions['Sentiment Score']
 non_pfic_regulars_with_polar_emotions= guava_df.loc[(guava_df['Category']!='pFIC') & ((guava_df['Sentiment Score']==-1) | (guava_df['Sentiment Score']==1))]
 non_pfic_regulars_with_polar_emotions=non_pfic_regulars_with_polar_emotions['Sentiment Score']
 
-print("P-Value between polar emotions pFIC and Regular Commits",mannwhitneyu(pfic_with_polar_emotions, non_pfic_regulars_with_polar_emotions))
+print("P-Value between polar emotions pFIC and Regular Commits :",mannwhitneyu(pfic_with_polar_emotions, non_pfic_regulars_with_polar_emotions).pvalue)
 polar_emotions_test.append(mannwhitneyu(pfic_with_polar_emotions, non_pfic_regulars_with_polar_emotions)[1])
 
 #Get FC's with polar emotions
@@ -271,7 +284,7 @@ fc_with_polar_emotions=fc_with_polar_emotions['Sentiment Score']
 non_fc_regulars_with_polar_emotions= guava_df.loc[(guava_df['Category']!='FC') & ((guava_df['Sentiment Score']==-1) | (guava_df['Sentiment Score']==1))]
 non_fc_regulars_with_polar_emotions=non_fc_regulars_with_polar_emotions['Sentiment Score']
 
-print("P-Value between polar emotions FC and Regular Commits",mannwhitneyu(fc_with_polar_emotions, non_fc_regulars_with_polar_emotions))
+print("P-Value between polar emotions FC and Regular Commits :",mannwhitneyu(fc_with_polar_emotions, non_fc_regulars_with_polar_emotions).pvalue)
 polar_emotions_test.append(mannwhitneyu(fc_with_polar_emotions, non_fc_regulars_with_polar_emotions)[1])
 
 #Get FIF's with polar emotions
@@ -282,33 +295,46 @@ fif_with_polar_emotions=fif_with_polar_emotions['Sentiment Score']
 non_fif_regulars_with_polar_emotions= guava_df.loc[(guava_df['Category']!='FIF') & ((guava_df['Sentiment Score']==-1) | (guava_df['Sentiment Score']==1))]
 non_fif_regulars_with_polar_emotions=non_fif_regulars_with_polar_emotions['Sentiment Score']
 
-print("P-Value between polar emotions FIF and Regular Commits",mannwhitneyu(fif_with_polar_emotions, non_fif_regulars_with_polar_emotions))
+print("P-Value between polar emotions FIF and Regular Commits :",mannwhitneyu(fif_with_polar_emotions, non_fif_regulars_with_polar_emotions).pvalue)
 polar_emotions_test.append(mannwhitneyu(fif_with_polar_emotions, non_fif_regulars_with_polar_emotions)[1])
+
+#Bonferroni Correction
+print(" ")
+print("Bonferroni correction for pvalues of polar emotions")
+print("***************************************************")
 p_adjusted_polarity = multi.multipletests(polar_emotions_test, method='bonferroni',alpha=0.05)
 print("P Adjusted values for All polarity test", p_adjusted_polarity)
 
 
-print("FIC Mean All emotions",np.mean(fic_with_all_emotions))
-print("Non-FIC Regular Mean All emotions",np.mean(non_fic_regulars_with_all_emotions))
-print("pFIC Mean All emotions",np.mean(pfic_with_all_emotions))
-print("Non-pFIC Regular Mean All emotions",np.mean(non_pfic_regulars_with_all_emotions))
-print("FC Mean All emotions",np.mean(fc_with_all_emotions))
-print("Non-FC Regular Mean All emotions",np.mean(non_fc_regulars_with_all_emotions))
-print("FIF Mean All emotions",np.mean(fif_with_all_emotions))
-print("Non-FIF Regular Mean All emotions",np.mean(non_fif_regulars_with_all_emotions))
+print(" ")
+print("Mean of all emotions")
+print("********************")
+print("FIC :",np.mean(fic_with_all_emotions))
+print("Non-FIC Regular :",np.mean(non_fic_regulars_with_all_emotions))
+print("pFIC :",np.mean(pfic_with_all_emotions))
+print("Non-pFIC Regular :",np.mean(non_pfic_regulars_with_all_emotions))
+print("FC Mean :",np.mean(fc_with_all_emotions))
+print("Non-FC Regular :",np.mean(non_fc_regulars_with_all_emotions))
+print("FIF :",np.mean(fif_with_all_emotions))
+print("Non-FIF Regular :",np.mean(non_fif_regulars_with_all_emotions))
 
-
-print("FIC Mean Polar emotions",np.mean(fic_with_polar_emotions))
-print("Non-FIC Regular Mean Polar emotions",np.mean(non_fic_regulars_with_polar_emotions))
-print("pFIC Mean Polar emotions",np.mean(pfic_with_polar_emotions))
-print("Non-pFIC Regular Mean Polar emotions",np.mean(non_pfic_regulars_with_polar_emotions))
-print("FC Mean Polar emotions",np.mean(fc_with_polar_emotions))
-print("Non-FC Regular Mean Polar emotions",np.mean(non_fc_regulars_with_polar_emotions))
-print("FIF Mean Polar emotions",np.mean(fif_with_polar_emotions))
-print("Non-FIF Regular Mean Polar emotions",np.mean(non_fif_regulars_with_polar_emotions))
+print(" ")
+print("Mean of polar emotions")
+print("**********************")
+print("FIC :",np.mean(fic_with_polar_emotions))
+print("Non-FIC Regular :",np.mean(non_fic_regulars_with_polar_emotions))
+print("pFIC :",np.mean(pfic_with_polar_emotions))
+print("Non-pFIC Regular :",np.mean(non_pfic_regulars_with_polar_emotions))
+print("FC :",np.mean(fc_with_polar_emotions))
+print("Non-FC Regular :",np.mean(non_fc_regulars_with_polar_emotions))
+print("FIF :",np.mean(fif_with_polar_emotions))
+print("Non-FIF Regular :",np.mean(non_fif_regulars_with_polar_emotions))
 
 
 #Chi-Squared Test-Negative Vs. Positive
+print(" ")
+print("Chi-Squared Test for Negative vs Positive")
+print("*****************************************")
 
 #FIC vs Regular
 fic_vs_regular_negative_and_positive= guava_df[(((guava_df['Category']=='FIC')| (guava_df['Category']=='Regular'))) & (((guava_df['Sentiment Score']==-1) | (guava_df['Sentiment Score']==1)))]
@@ -322,6 +348,7 @@ contigency_pct = pd.crosstab(fic_vs_regular_negative_and_positive['Category'], f
 
 print(" ")
 print("FIC Vs. Regular")
+print("***************")
 print(contigency_pct)
 
 #pFIC vs Regular
@@ -336,6 +363,7 @@ contigency_pct = pd.crosstab(pfic_vs_regular_negative_and_positive['Category'], 
 
 print(" ")
 print("pFIC Vs. Regular")
+print("****************")
 print(contigency_pct)
 
 
@@ -351,6 +379,7 @@ contigency_pct = pd.crosstab(fc_vs_regular_negative_and_positive['Category'], fc
 
 print(" ")
 print("FC Vs. Regular")
+print("**************")
 print(contigency_pct)
 
 #FIF vs Regular
@@ -365,11 +394,17 @@ contigency_pct = pd.crosstab(fif_vs_regular_negative_and_positive['Category'], f
 
 print(" ")
 print("FIF Vs. Regular")
+print("***************")
 print(contigency_pct)
 
 
 
 #Chi-Squared Test-Emotion Vs. Neutral
+
+print(" ")
+print("Chi-Squared Test for Emotions vs Neutral")
+print("****************************************")
+
 guava_df.loc[guava_df['Sentiment Score']== -1,'Sentiment Score'] = 1
 
 #FIC vs Regular
@@ -383,8 +418,8 @@ contigency= pd.crosstab(fic_vs_regular_emotion_and_neutral['Category'], fic_vs_r
 contigency_pct = pd.crosstab(fic_vs_regular_emotion_and_neutral['Category'], fic_vs_regular_emotion_and_neutral['Sentiment Score'], normalize='index')
 
 print(" ")
-print("Emotion Vs. Neutral")
 print("FIC Vs. Regular")
+print("***************")
 print(contigency_pct)
 
 #pFIC vs Regular
@@ -398,8 +433,8 @@ contigency= pd.crosstab(pfic_vs_regular_emotion_and_neutral['Category'], pfic_vs
 contigency_pct = pd.crosstab(pfic_vs_regular_emotion_and_neutral['Category'], pfic_vs_regular_emotion_and_neutral['Sentiment Score'], normalize='index')
 
 print(" ")
-print("Emotion Vs. Neutral")
 print("pFIC Vs. Regular")
+print("***************")
 print(contigency_pct)
 #
 # #FC vs Regular
@@ -413,8 +448,8 @@ contigency= pd.crosstab(fc_vs_regular_emotion_and_neutral['Category'], fc_vs_reg
 contigency_pct = pd.crosstab(fc_vs_regular_emotion_and_neutral['Category'], fc_vs_regular_emotion_and_neutral['Sentiment Score'], normalize='index')
 
 print(" ")
-print("Emotion Vs. Neutral")
 print("FC Vs. Regular")
+print("**************")
 print(contigency_pct)
 
 
@@ -429,8 +464,8 @@ contigency= pd.crosstab(fif_vs_regular_emotion_and_neutral['Category'], fif_vs_r
 contigency_pct = pd.crosstab(fif_vs_regular_emotion_and_neutral['Category'], fif_vs_regular_emotion_and_neutral['Sentiment Score'], normalize='index')
 
 print(" ")
-print("Emotion Vs. Neutral")
 print("FIF Vs. Regular")
+print("***************")
 print(contigency_pct)
 
 
