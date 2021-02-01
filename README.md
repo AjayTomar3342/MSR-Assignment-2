@@ -32,48 +32,42 @@ The necessary libraries and packages are specified in the **requirements.txt** f
 ## Process for acquiring the results: 
 
   * **Step 1:**
-  
   Create a local directory in your machine where you want to pull the git project and clone the project by running the below command from cmd 
-  
   (Make sure that you are in the newly created directory first!):
   
-  ```git clone https://github.com/AjayTomar3342/MSR-Assignment-2```
+  	```git clone https://github.com/AjayTomar3342/MSR-Assignment-2```
 
   * **Step 2:**
-  
   From cmd, move into the main folder of the cloned project
   
-  ```cd MSR-Assignment-2```
+ 	 ```cd MSR-Assignment-2```
 
   * **Step 3:**
-  
   Execute the below commands to meet the pre-requisites to execute the code
   
-  ```
-  Unix/macOS
-  python -m pip install -r requirements.txt
+  ```  	Unix/macOS
+	python -m pip install -r requirements.txt
 
-  Windows
-  py -m pip install -r requirements.txt
-  ```
+	Windows
+	py -m pip install -r requirements.txt
+ 	
+```
 
   * **Step 4:**
-  
   On satisfying the above requirements, move into the Process folder
   
-  ```cd Process```
+	 ```cd Process```
   
   * **Step 5:**
-  
   Execute the below commands to run the code from cmd
   
   ```
-  Unix/macOS
-  python MSR_Assignment.py
+  	Unix/macOS
+  	python MSR_Assignment.py
 
-  Windows
-  %run MSR_Assignment.py
-  ```
+  	Windows
+ 	%run MSR_Assignment.py
+ ```
   
   **NOTE:** 
   After each run of the code, the **Guava Repository** Folder from the Process folder has to be deleted manually as for each run, GitHub API scrapes updated data and for successfull scraping, older data has to be deleted
@@ -162,17 +156,37 @@ Check the generated output files in the below order to validate and understand t
 
 Input data is the extracted messages from the cloned repository, the remaining files created as part of the program are all intermediate files.
 
-### Final results
+### Final statistical results
 
 The final results are printed as part of the console
 
-<img src="Data/All_Emotions_RankSum_pvalue.PNG">
-<img src="Data/All_Emotions_Bonferroni.PNG">
-<img src="Data/Polar_Emotions_RankSum_pvalue.PNG">
-<img src="Data/Polar_Emotions_Bonferroni.PNG">
-<img src="Data/Mean_Values.PNG">
-<img src="Data/Chi_Square_Negative_Positive.PNG">
-<img src="Data/Chi_Square_Emotion_Neutral.PNG">
+**All Emotions - Rank Sum - Pvalue:**
+
+<img src="Data/All_Emotions_RankSum_pvalue.png">
+
+**All Emotions Pvalue - Bonferroni Correction:**
+
+<img src="Data/All_Emotions_Bonferroni.png">
+
+**Polar Emotions - Rank Sum - Pvalue:**
+
+<img src="Data/Polar_Emotions_RankSum_pvalue.png">
+
+**Polar Emotions Pvalue - Bonferroni Correction:**
+
+<img src="Data/Polar_Emotions_Bonferroni.png">
+
+**Mean Values:**
+
+<img src="Data/Mean_Values.png">
+
+**Chi-Squared Statistics - Negative vs Positive:**
+
+<img src="Data/Chi_Square_Negative_Positive.png">
+
+**Chi-Squared Statistics - Emotion vs Neutral:**
+
+<img src="Data/Chi_Square_Emotion_Neutral.png">
 
 
 ## Delta: 
