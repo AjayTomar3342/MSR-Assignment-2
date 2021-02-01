@@ -50,8 +50,7 @@ The necessary libraries and packages are specified in the **requirements.txt** f
 
 	Windows
 	py -m pip install -r requirements.txt
- 	
-```
+  ```
 
   * **Step 4:**
   On satisfying the above requirements, move into the Process folder
@@ -61,13 +60,13 @@ The necessary libraries and packages are specified in the **requirements.txt** f
   * **Step 5:**
   Execute the below commands to run the code from cmd
   
-  ```
-  	Unix/macOS
-  	python MSR_Assignment.py
+  ``` Unix/macOS
+      python MSR_Assignment.py
 
-  	Windows
- 	%run MSR_Assignment.py
- ```
+      Windows
+      %run MSR_Assignment.py
+  ```
+  
   
   **NOTE:** 
   After each run of the code, the **Guava Repository** Folder from the Process folder has to be deleted manually as for each run, GitHub API scrapes updated data and for successfull scraping, older data has to be deleted
