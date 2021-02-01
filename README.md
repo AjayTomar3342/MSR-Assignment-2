@@ -13,42 +13,79 @@ Please cite the following paper if you intend to know more about the original re
 
 ## Requirements:
 
-To run this project, you will need
+To run this project, you will need Python3+, pip and Git installed on the system. 
 
-Python IDE (Jupyter Notebook or PyCharm-In Case of Alternative Process)
-Python3+ must be installed on the system.
+The reference links are provided below.
+
+> **Python:**
+  https://www.python.org/downloads/
+  
+> **pip:**
+  https://pypi.org/project/pip/
+
+> **Git:**
+  https://git-scm.com/downloads
 	
-Execute the below commands in the terminal based on your OS
-```
-	Unix/macOS
-	python -m pip install -r requirements.txt
+The necessary libraries and packages are specified in the **requirements.txt** file and will be validated in the below steps
 
-	Windows
-	py -m pip install -r requirements.txt
 
-```
 ## Process for acquiring the results: 
 
   * **Step 1:**
-  Clone the project into your local machine
+  
+  Create a local directory in your machine where you want to pull the git project and clone the project by running the below command from cmd 
+  
+  (Make sure that you are in the newly created directory first!):
+  
+  ```git clone https://github.com/AjayTomar3342/MSR-Assignment-2```
 
   * **Step 2:**
-  Execute the requirements commands in the terminal based on your OS to ensure you have the right setup for code execution
+  
+  From cmd, move into the main folder of the cloned project
+  
+  ```cd MSR-Assignment-2```
 
   * **Step 3:**
-  Change directory to the Process folder 
   
- 	 ```cd Process```
+  Execute the below commands to meet the pre-requisites to execute the code
+  
+  ```
+  Unix/macOS
+  python -m pip install -r requirements.txt
+
+  Windows
+  py -m pip install -r requirements.txt
+  ```
 
   * **Step 4:**
-  Execute the code present in the Process folder (File Name-MSR-Assignment.py) in the IDE
   
-  Please note that after each run of the file Guava Repository Folder from the Process folder has to be deleted manually as for each run, GitHub API scrapes updated data and for successfull scraping older data has to be deleted
+  On satisfying the above requirements, move into the Process folder
+  
+  ```cd Process```
+  
+  * **Step 5:**
+  
+  Execute the below commands to run the code from cmd
+  
+  ```
+  Unix/macOS
+  python MSR_Assignment.py
+
+  Windows
+  %run MSR_Assignment.py
+  ```
+  
+  **NOTE:** 
+  After each run of the code, the **Guava Repository** Folder from the Process folder has to be deleted manually as for each run, GitHub API scrapes updated data and for successfull scraping, older data has to be deleted
+  
+  
 
 ## Alternative Process for acquiring the results(Backup):
+
 For quick running of program, PyCharm use is suggested as it has good controls for removing manual steps to pull a repository and get it running.
 
 Steps are:
+
   * **Step 1:**
   Make sure one is signed in on Github in Pycharm
   
@@ -75,31 +112,38 @@ Steps are:
   Select option to start the pulled project in New Window or This window as per your personal preference.
   
   * **Step 9:**
-  After this the project will be up and running and requirements. Txt file will automatically install required libraries. Run the file MSR-Assignment.py from Process Folder to get the results
+  After this the project will be up and running and requirements.txt file will automatically install required libraries. Run the file MSR-Assignment.py from Process Folder to get the results
 
 This is a quick process to start the testing of GitHub project taken from the Official Jet Brains Website. We have tried this with several PC’s and are confident that this will not give any errors.
 
 > **Link to Above Process Video:**
   https://www.youtube.com/watch?v=ukbvdF5wqPQ&feature=emb_title
 
+
 ## Results:
 
-Results are stored in an excel file inside Doc Folder named results.xlsx. The information stored is taken from program console and are taken after the code was run on 30/1/2021 10:08:00 PM IST.
+Results are stored in an excel file inside Doc Folder named Results.xlsx. The information stored was taken from program console and was taken after the code was run on 30/1/2021 10:08:00 PM IST.
 
 Screenshots of Results are as follows:
 
 <img src="Data/Result_2.png"> 
 <img src="Data/Result_1.png"> 
 
-## Contents of Doc Folder:
 
-Doc Folder consists of Input File (Acquired after scraping GitHub Repository) named as Guava_Commit_Raw.csv and an Output File(Results.xlsx) for viewing the input and output without execution. 
+## Data Flow
+
+The scraped data flows as per the below methodology
+
+<img src="Data/DataFlow.png"> 
+
 
 ## Validation: 
 
+Input File (acquired after scraping GitHub Repository) is named as Guava_Commit_Raw.csv and an Output File (Results.xlsx) for viewing the input and output without execution. 
+
 Check the generated output files in the below order to validate and understand the result
 
-**1) Guava_Commits_Raw.csv** - The cloned repository commit messages
+**1) Guava_Commits_Raw.csv** - The cloned repository commit messages - Input File
 
 **2) Guava_Cleaned_Commits.csv** - The cleaned commit messages
 
@@ -111,23 +155,33 @@ Check the generated output files in the below order to validate and understand t
 
 **6) Guava_Commits_Final.csv** - The final output which will be used for statistical analysis including the categories and the sentiment values
 
-**7) Results.xlsx** – The final statistical inference
+**7) Results.xlsx** – The final statistical inference - Output File
 
 
 ## Data: 
 
 Input data is the extracted messages from the cloned repository, the remaining files created as part of the program are all intermediate files.
+
+### Final results
+
 The final results are printed as part of the console
 
-<img src="Data/DataFlow.png"> 
+<img src="Data/All_Emotions_RankSum_pvalue.PNG">
+<img src="Data/All_Emotions_Bonferroni.PNG">
+<img src="Data/Polar_Emotions_RankSum_pvalue.PNG">
+<img src="Data/Polar_Emotions_Bonferroni.PNG">
+<img src="Data/Mean_Values.PNG">
+<img src="Data/Chi_Square_Negative_Positive.PNG">
+<img src="Data/Chi_Square_Emotion_Neutral.PNG">
+
 
 ## Delta: 
 
 ### Process delta: 
 
-* The original process followed in the research paper applies to 13 different GitHub repositories to collect a strong inference on the actual research. With respect to reproducing the research, we have applied the research steps on only 1 repository to avoid scalability issues. 
+* The original process followed in the research paper applies to 13 different huge GitHub repositories to collect a strong inference on the actual research. With respect to reproducing the research, we have applied the research steps on only 1 repository to avoid scalability issues. 
 
-* The sentiment analysis performed in the original research paper involves Senti4SD tool but due to the corrupted jar file within the Senti4SD code, we chose to alternatively go for NLTK Vader Sentiment analysis. In addition, NLTK Vader Sentiment Analysis sentiment scores for GitHub Commits(which were in the form of floating numbers ranging from [-1,1] were rounded up to -1/1(0 was pre-defined by the tool) as the output sentiment scores of GitHub Commits in original research process gave output in form of -1/0/1 for Negative, Neutral and Positive Sentiments for each GitHub Commit respectively.
+* The sentiment analysis performed in the original research paper involves Senti4SD tool but due to corrupted jar file issue within the Senti4SD code, we chose to alternatively go for NLTK Vader Sentiment analysis. In addition, NLTK Vader Sentiment Analysis sentiment scores for GitHub Commits (which were in the form of floating numbers ranging from [-1,1] were rounded up to -1/1(0 was pre-defined by the tool) as the output sentiment scores of GitHub Commits in original research process gave output in form of -1/0/1 for Negative, Neutral and Positive Sentiments for each GitHub Commit respectively.
 
 * Mann-Whitney U Test (aka, Wilcoxon Rank Sum Test) has been implied on the data for statistical analysis despite the fact that Wilcoxon Rank Sum Test was used in the research paper since both are officially the same. Both are known to produce similar results but with minute differences.
 
@@ -139,4 +193,4 @@ The final results are printed as part of the console
 
 * The p-values resulting from Bonferroni corrections is mostly 1 which means that the Mean values of the comparing data is almost same. This is inevitable as there is minor difference between the sentiment values among the different categories.
 
-* The result in the research paper involves a combination of 13 huge repositories wherein we assume the results that we got from our reproduction project is different since we considered only one medium sized repository for this task and that the repository might be biased.
+* The result in the research paper involves a combination of 13 huge repositories wherein we assume that the results that we got from our reproduction project is different since we considered only one medium sized repository for this task and that the repository might be biased.
