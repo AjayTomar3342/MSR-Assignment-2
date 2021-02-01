@@ -45,11 +45,12 @@ The necessary libraries and packages are specified in the **requirements.txt** f
   * **Step 3:**
   Execute the below commands to meet the pre-requisites to execute the code
   
-  ```  	Unix/macOS
-	python -m pip install -r requirements.txt
+  ```  	
+      Unix/macOS
+      python -m pip install -r requirements.txt
 
-	Windows
-	py -m pip install -r requirements.txt
+      Windows
+      py -m pip install -r requirements.txt
   ```
 
   * **Step 4:**
@@ -60,7 +61,8 @@ The necessary libraries and packages are specified in the **requirements.txt** f
   * **Step 5:**
   Execute the below commands to run the code from cmd
   
-  ``` Unix/macOS
+  ``` 
+      Unix/macOS
       python MSR_Assignment.py
 
       Windows
